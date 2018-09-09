@@ -1,22 +1,10 @@
-def insertion_sort(ar, len_array):
-
-    for x in range(1, len_array):
-
-        curPos = x
-
-        while curPos > 0 and ar[curPos] < ar[curPos - 1]:
-            ar[curPos], ar[curPos - 1] = ar[curPos - 1], ar[curPos]
-            curPos -= 1
-            print "@"
-
-
 def merge_sort(ar, left, right):
+
+        # recursive merge sort function
 
     if right - left > 1:
 
         mid = (left + right) / 2
-
-        print '#'
 
         merge_sort(ar, left, mid)
         merge_sort(ar, mid, right)
@@ -25,6 +13,8 @@ def merge_sort(ar, left, right):
 
 
 def merge(ar, left, mid, right):
+
+        # funtion to merge two sorted arrays in ascending order
 
     first_half = ar[left:mid]
     second_half = ar[mid:right]
@@ -57,11 +47,15 @@ def merge(ar, left, mid, right):
             k += 1
 
 
-ar = [6, 3, 8, 10, 5, 6]
-print ar
-ar1 = ar
-insertion_sort(ar1, len(ar))
-print ar1
+n = int(raw_input("Enter the number of elements for the list "))
+
+ar = []
+
+for x in range(n):
+    ar.append(int(raw_input("Enter the element " + str(x + 1) + " ")))
+
+print "Merge Sorting... "
+
 merge_sort(ar, 0, len(ar))
 
 print ar
