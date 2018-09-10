@@ -8,7 +8,7 @@ key_mapping = {2: ['a', 'b', 'c'],
                9: ['w', 'x', 'y', 'z'], }
 
 
-def merge_sort(ar, left, right):
+"""def merge_sort(ar, left, right):
 
     if right - left > 1:
 
@@ -51,6 +51,29 @@ def merge(ar, left, mid, right):
             ar[k] = second_half[j]
             j += 1
             k += 1
+"""
+
+
+def quick_sort(arr, left, right):
+
+    if right - left <= 1:
+        return
+
+    #
+    left_pointer = left + 1
+
+    for right_pointer in range(left + 1, right):
+
+        if arr[right_pointer] < arr[left]:
+
+            arr[left_pointer], arr[right_pointer] = arr[right_pointer], arr[left_pointer]
+
+            left_pointer += 1
+
+    arr[left], arr[left_pointer - 1] = arr[left_pointer - 1], arr[left]
+
+    quick_sort(arr, left, left_pointer)
+    quick_sort(arr, left + 1, right)
 
 
 def number_array_maker(word_array, n):
@@ -80,7 +103,7 @@ def helper_funcion(value_check):
 
 def check_highest_count(number_array, n):
 
-    merge_sort(number_array, 0, n)
+    quick_sort(number_array, 0, len(number_array))
 
     max_count = 1
     current = number_array[0]
