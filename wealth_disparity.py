@@ -62,10 +62,8 @@ visited = [False] * (n + 1)
 
 maxValue = -9999999999999999999
 
-flag = True
 
-
-def find_max(top, maxValue, flag=False):
+def find_max(top, maxValue):
 
     visited[top] = True
 
@@ -100,7 +98,7 @@ def find_max(top, maxValue, flag=False):
     return maxValue
 
 
-maxValue = find_max(top1, maxValue, True)
+maxValue = find_max(top1, maxValue)
 
 if n == 1:
     print 0
