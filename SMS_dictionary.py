@@ -138,4 +138,4 @@ for x in range(n):
 
 number_array = number_array_maker(word_array, len(word_array))
 
-print check_highest_count(number_array, len(number_array))
+print check_highest_count(number_array, len(number_array)) #why this kolaveri kolaveri aajdskskkkdkk
