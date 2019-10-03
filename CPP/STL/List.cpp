@@ -1,7 +1,3 @@
-/*
-Author : Ravineel
-Title : LIST STL
-*/
 #include<iostream>
 #include<list>
 #include<algorithm>
