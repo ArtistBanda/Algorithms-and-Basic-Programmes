@@ -35,12 +35,10 @@ def fibonacci_2(n):
     return fibtable[n]
 
 
-n = int(raw_input())
-
-# print fibonacci(n)
+n = int(input())
 
 ar = [None] * (n + 1)
 
-print fibonacci_2(n), "DP"
+print(fibonacci_2(n), "DP")
 
-print fibonacci_1(n, ar), "Memoization"
+print(fibonacci_1(n, ar), "Memoization")

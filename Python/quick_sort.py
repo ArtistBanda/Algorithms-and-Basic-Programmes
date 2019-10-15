@@ -19,13 +19,13 @@ def quick_sort(arr, left, right):
     quick_sort(arr, left + 1, right)
 
 
-n = int(raw_input("Enter the number of elements "))
+n = int(input("Enter the number of elements "))
 
 ar = [None] * n
 
 for x in range(n):
-    ar[x] = int(raw_input("Enter Element " + str(x + 1) + " "))
+    ar[x] = int(input("Enter Element " + str(x + 1) + " "))
 
 quick_sort(ar, 0, n)
 
-print ar
+print(ar)

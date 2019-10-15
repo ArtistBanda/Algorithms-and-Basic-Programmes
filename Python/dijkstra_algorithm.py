@@ -15,7 +15,7 @@ class graph(object):
 
     def print_graph(self):
         for x in range(1, self.size + 1):
-            print x, " : ", self.adjacency_list[x]
+            print(x, " : ", self.adjacency_list[x])
 
 
 def minIndex(g, visited, distance, minDis):
@@ -36,7 +36,7 @@ def dijksrta_short(g, start, end):
 
     distance[start] = 0
 
-    for count in range(g.size):
+    for _ in range(g.size):
 
         minIndex1 = minIndex(g, visited, distance, g.maxSize)
 
@@ -61,4 +61,4 @@ g.add_node(1, 5, 100)
 
 g.print_graph()
 
-print dijksrta_short(g, 1, 5)
+print(dijksrta_short(g, 1, 5))

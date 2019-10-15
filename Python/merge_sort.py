@@ -47,15 +47,15 @@ def merge(ar, left, mid, right):
             k += 1
 
 
-n = int(raw_input("Enter the number of elements for the list "))
+n = int(input("Enter the number of elements for the list "))
 
 ar = []
 
 for x in range(n):
-    ar.append(int(raw_input("Enter the element " + str(x + 1) + " ")))
+    ar.append(int(input("Enter the element " + str(x + 1) + " ")))
 
-print "Merge Sorting... "
+print("Merge Sorting... ")
 
 merge_sort(ar, 0, len(ar))
 
-print ar
+print(ar)

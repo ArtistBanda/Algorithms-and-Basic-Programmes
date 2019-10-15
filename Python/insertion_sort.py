@@ -18,13 +18,13 @@ def insertion_sort(ar, start, end):
                 curPos -= 1
 
 
-n = int(raw_input("Enter the no. of elements "))
+n = int(input("Enter the no. of elements "))
 
 ar = []
 
 for x in range(n):
-    ar.append(int(raw_input("Enter element " + str(x + 1) + " ")))
+    ar.append(int(input("Enter element " + str(x + 1) + " ")))
 
 insertion_sort(ar, 0, len(ar))
 
-print ar
+print(ar)
