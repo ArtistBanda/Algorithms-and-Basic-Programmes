@@ -37,9 +37,9 @@ from __future__ import division
 
 n, m = 0, 0
 
-X, Y = map(int, raw_input().split())
+X, Y = map(int, input().split())
 
-n, m = map(int, raw_input().split())
+n, m = map(int, input().split())
 
 adjacency_list = {}
 
@@ -48,14 +48,14 @@ for x in range(1, n + 1):
 
 time_matrix = [n]
 
-time_matrix = map(int, raw_input().split())
+time_matrix = map(int, input().split())
 
 x, y, z = 0, 0, 0
 
 maxDis = 0
 
 for i in range(m):
-    x, y, z = map(int, raw_input().split())
+    x, y, z = map(int, input().split())
     maxDis += z
     adjacency_list[x].append([y, z])
     adjacency_list[y].append([x, z])
@@ -80,7 +80,7 @@ def dijkstra_short(s, n, maxDis, Y):
 
     distance[s] = 0
 
-    for count in range(1, n + 1):
+    for _ in range(1, n + 1):
 
         u = minIndex(distance, visited, maxDis, n)
 
@@ -105,4 +105,4 @@ def dijkstra_short(s, n, maxDis, Y):
     return distance[Y]
 
 
-print dijkstra_short(X, n, maxDis, Y)
+print(dijkstra_short(X, n, maxDis, Y))

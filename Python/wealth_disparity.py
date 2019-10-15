@@ -35,11 +35,11 @@ Output Format
 
 One integer, which is the needed answer. """
 
-n = int(raw_input())
+n = int(input())
 
-wealth_array = map(long, raw_input().split())
+wealth_array = map(long, input().split())
 
-parent_array = map(int, raw_input().split())
+parent_array = map(int, input().split())
 
 adjacency_list = [None] * (n + 1)
 
@@ -54,7 +54,7 @@ for x in range(n):
     if parent_array[x] == -1:
         top1 = x + 1
 
-print adjacency_list
+print(adjacency_list)
 
 temp = [top1]
 
@@ -101,7 +101,7 @@ def find_max(top, maxValue):
 maxValue = find_max(top1, maxValue)
 
 if n == 1:
-    print 0
+    print(0)
 
 else:
-    print maxValue
+    print(maxValue)

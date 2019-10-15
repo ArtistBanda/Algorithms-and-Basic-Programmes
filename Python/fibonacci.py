@@ -37,8 +37,6 @@ def fibonacci_2(n):
 
 n = int(input())
 
-# print fibonacci(n)
-
 ar = [None] * (n + 1)
 
 print(fibonacci_2(n), "DP")

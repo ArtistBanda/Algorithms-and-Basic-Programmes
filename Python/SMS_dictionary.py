@@ -129,13 +129,13 @@ def check_highest_count(number_array, n):
     return current
 
 
-n = int(raw_input())
+n = int(input())
 
 word_array = []
 
 for x in range(n):
-    word_array.append(list(raw_input()))
+    word_array.append(list(input()))
 
 number_array = number_array_maker(word_array, len(word_array))
 
-print check_highest_count(number_array, len(number_array))
+print(check_highest_count(number_array, len(number_array)))
