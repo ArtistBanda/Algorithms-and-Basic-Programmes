@@ -23,6 +23,8 @@ void bubbleSort(int arr[], int n)
     }
 }
 
+// TEST CODE
+
 int main()
 {
     int i, n, array[100];
