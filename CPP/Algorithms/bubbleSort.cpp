@@ -4,7 +4,7 @@ using namespace std;
 void bubbleSort(int arr[], int n)
 {
     int i, j, temp = 0;
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n - 1; i++)
     {
         for (j = 0; j < n - i - 1; j++)
         {
@@ -16,21 +16,20 @@ void bubbleSort(int arr[], int n)
             }
         }
     }
-
-    for (i = 0; i < n; i++)
-    {
-        cout << arr[i] << endl;
-    }
 }
+
+// Test Code
 
 int main()
 {
-    int i, n, array[100];
+    int i, n, ar[100];
     cin >> n;
     for (i = 0; i < n; i++)
     {
-        cin >> array[i];
+        cin >> ar[i];
     }
-    bubbleSort(array, n);
+    bubbleSort(ar, n);
+    for (int i = 0; i < n; i++)
+        cout << ar[i] << ' ';
     return 0;
 }
