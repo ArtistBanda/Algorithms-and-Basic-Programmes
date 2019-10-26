@@ -1,6 +1,4 @@
 #include <iostream>
-#include <bits/stdc++.h>
-
 using namespace std;
 
 struct node
@@ -20,7 +18,8 @@ node *createNode(int value)
 class LinkedList
 {
     node *head;
-    public:
+
+public:
     LinkedList()
     {
         head = NULL;
@@ -28,7 +27,7 @@ class LinkedList
     void insertStart(int value)
     {
         node *n1 = createNode(value);
-        if(head == NULL)
+        if (head == NULL)
         {
             head = n1;
             return;
@@ -39,38 +38,35 @@ class LinkedList
     void insertback(int value)
     {
         node *n1 = createNode(value);
-        if(head == NULL)
+        if (head == NULL)
         {
             head = n1;
             return;
         }
         node *ptr = head;
-        while(ptr->next != NULL)
+        while (ptr->next != NULL)
         {
             ptr = ptr->next;
         }
         ptr->next = n1;
     }
 
-    void pairWiseSwap() 
-    { 
-        node* temp = head; 
-    
-        
-        while (temp != NULL && temp->next != NULL) { 
-            
-            swap(temp->value, 
-                temp->next->value); 
-    
-            
-            temp = temp->next->next; 
-        } 
-    } 
-    
-     void displayAll()
+    void pairWiseSwap()
+    {
+        node *temp = head;
+        while (temp != NULL && temp->next != NULL)
+        {
+
+            swap(temp->value,
+                 temp->next->value);
+            temp = temp->next->next;
+        }
+    }
+
+    void displayAll()
     {
         if (head == NULL)
-            cout << "UnderFlow";
+            cout << "UnderFlow\n";
         else
         {
             node *ptr = head;
@@ -81,20 +77,24 @@ class LinkedList
             }
             cout << endl;
         }
-}
+    }
 };
+
+// Test Code
+
 int main()
-{ int i,j;
+{
     LinkedList L;
-    
-        L.insertStart(5);
-        L.insertback(4);
-        L.insertback(3);
-        L.insertback(2);
-    
+
+    L.insertStart(5);
+    L.insertback(4);
+    L.insertback(3);
+    L.insertback(2);
+    L.insertback(1);
+
     L.displayAll();
     L.pairWiseSwap();
     L.displayAll();
-    
+
     return 0;
 }
