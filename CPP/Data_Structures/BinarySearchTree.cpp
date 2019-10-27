@@ -1,69 +1,69 @@
-#include <iostream>
-using namespace std;
+// C program to demonstrate insert operation in binary search tree 
+#include<stdio.h> 
+#include<stdlib.h> 
 
-struct node
-{
-    int value;
-    node *left, *right;
-};
+struct node 
+{ 
+	int key; 
+	struct node *left, *right; 
+}; 
 
-node *createNode(int value)
-{
-    node *newNode = new node;
-    newNode->value = value;
-    newNode->left = newNode->right = NULL;
-    return newNode;
-}
+// A utility function to create a new BST node 
+struct node *newNode(int item) 
+{ 
+	struct node *temp = (struct node *)malloc(sizeof(struct node)); 
+	temp->key = item; 
+	temp->left = temp->right = NULL; 
+	return temp; 
+} 
 
-node *insertBST(node *root, int value)
-{
-    if (root == NULL)
-    {
-        return createNode(value);
-    }
-    if (value < root->value)
-        root->left = insertBST(root->left, value);
-    else
-        root->right = insertBST(root->right, value);
-}
+// A utility function to do inorder traversal of BST 
+void inorder(struct node *root) 
+{ 
+	if (root != NULL) 
+	{ 
+		inorder(root->left); 
+		printf("%d \n", root->key); 
+		inorder(root->right); 
+	} 
+} 
 
-void printPreoder(node *root)
-{
-    if (root == NULL)
-        return;
-    cout << root->value << ' ';
-    printPreoder(root->left);
-    printPreoder(root->right);
-}
+/* A utility function to insert a new node with given key in BST */
+struct node* insert(struct node* node, int key) 
+{ 
+	/* If the tree is empty, return a new node */
+	if (node == NULL) return newNode(key); 
 
-void printInorder(node *root)
-{
-    if (root == NULL)
-        return;
-    printInorder(root->left);
-    cout << root->value << ' ';
-    printInorder(root->right);
-}
+	/* Otherwise, recur down the tree */
+	if (key < node->key) 
+		node->left = insert(node->left, key); 
+	else if (key > node->key) 
+		node->right = insert(node->right, key); 
 
-void printPostorder(node *root)
-{
-    if (root == NULL)
-        return;
-    printPostorder(root->left);
-    printPostorder(root->right);
-    cout << root->value << ' ';
-}
+	/* return the (unchanged) node pointer */
+	return node; 
+} 
 
-int main()
-{
-    node *root;
-    root = insertBST(root, 4);
-    insertBST(root, 2);
-    insertBST(root, 1);
-    insertBST(root, 3);
-    insertBST(root, 4);
-    insertBST(root, 5);
-    insertBST(root, 6);
-    printInorder(root);
-    return 0;
-}
+// Driver Program to test above functions 
+int main() 
+{ 
+	/* Let us create following BST 
+			50 
+		/	 \ 
+		30	 70 
+		/ \ / \ 
+	20 40 60 80 */
+	struct node *root = NULL; 
+	root = insert(root, 50); 
+	insert(root, 30); 
+	insert(root, 20); 
+	insert(root, 40); 
+	insert(root, 70); 
+	insert(root, 60); 
+	insert(root, 80); 
+
+	// print inoder traversal of the BST 
+	inorder(root); 
+
+	return 0; 
+} 
