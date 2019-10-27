@@ -1,100 +1,87 @@
-#include <iostream>
-using namespace std;
+// C++ program to pairwise swap elements 
+// in a given linked list 
+#include <bits/stdc++.h> 
+using namespace std; 
 
-struct node
-{
-    int value;
-    struct node *next;
-};
+/* A linked list node */
+class Node { 
+public: 
+	int data; 
+	Node* next; 
+}; 
 
-node *createNode(int value)
-{
-    node *n1 = new node;
-    n1->value = value;
-    n1->next = NULL;
-    return n1;
-};
+/* Function to pairwise swap elements 
+of a linked list */
+void pairWiseSwap(Node* head) 
+{ 
+	Node* temp = head; 
 
-class LinkedList
-{
-    node *head;
+	/* Traverse further only if 
+	there are at-least two nodes left */
+	while (temp != NULL && temp->next != NULL) { 
+		/* Swap data of node with 
+		its next node's data */
+		swap(temp->data, 
+			temp->next->data); 
 
-public:
-    LinkedList()
-    {
-        head = NULL;
-    }
-    void insertStart(int value)
-    {
-        node *n1 = createNode(value);
-        if (head == NULL)
-        {
-            head = n1;
-            return;
-        }
-        n1->next = head;
-        head = n1;
-    }
-    void insertback(int value)
-    {
-        node *n1 = createNode(value);
-        if (head == NULL)
-        {
-            head = n1;
-            return;
-        }
-        node *ptr = head;
-        while (ptr->next != NULL)
-        {
-            ptr = ptr->next;
-        }
-        ptr->next = n1;
-    }
+		/* Move temp by 2 for the next pair */
+		temp = temp->next->next; 
+	} 
+} 
 
-    void pairWiseSwap()
-    {
-        node *temp = head;
-        while (temp != NULL && temp->next != NULL)
-        {
+/* Function to add a node at the 
+beginning of Linked List */
+void push(Node** head_ref, int new_data) 
+{ 
+	/* allocate node */
+	Node* new_node = new Node(); 
 
-            swap(temp->value,
-                 temp->next->value);
-            temp = temp->next->next;
-        }
-    }
+	/* put in the data */
+	new_node->data = new_data; 
 
-    void displayAll()
-    {
-        if (head == NULL)
-            cout << "UnderFlow\n";
-        else
-        {
-            node *ptr = head;
-            while (ptr != NULL)
-            {
-                cout << ptr->value << "->";
-                ptr = ptr->next;
-            }
-            cout << endl;
-        }
-    }
-};
+	/* link the old list off the new node */
+	new_node->next = (*head_ref); 
 
-// Test Code
+	/* move the head to point 
+	to the new node */
+	(*head_ref) = new_node; 
+} 
 
-int main()
-{
-    LinkedList L;
+/* Function to print nodes 
+in a given linked list */
+void printList(Node* node) 
+{ 
+	while (node != NULL) { 
+		cout << node->data << " "; 
+		node = node->next; 
+	} 
+} 
 
-    L.insertStart(5);
-    L.insertback(4);
-    L.insertback(3);
-    L.insertback(2);
-    L.insertback(1);
+// Driver Code 
+int main() 
+{ 
+	Node* start = NULL; 
 
-    L.displayAll();
-    L.pairWiseSwap();
-    L.displayAll();
+	/* The constructed linked list is: 
+	1->2->3->4->5 */
+	push(&start, 5); 
+	push(&start, 4); 
+	push(&start, 3); 
+	push(&start, 2); 
+	push(&start, 1); 
 
-    return 0;
-}
+	cout << "Linked list "
+		<< "before calling pairWiseSwap()\n"; 
+	printList(start); 
+
+	pairWiseSwap(start); 
+
+	cout << "\nLinked list "
+		<< "after calling pairWiseSwap()\n"; 
+	printList(start); 
+
+	return 0; 
+} 
+
+// This code is contributed 
+// by rathbhupendra 
