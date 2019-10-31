@@ -1,5 +1,4 @@
 # Algorithms-and-Data-Structures
-All my fundamental algorithms and data structures programmes.
+All my fundamental algorithms and data structures programmes have been uploaded here.
 
-This repository is for learning purpose and most of the programmes are fundamental and uploaded on github for getting familiar
-with git and how to use it for a real project.
+This repository is for learning purpose and most of the programmes are fundamental and uploaded on github for helping a user to get familiar with git and it's uses and importance while making a real project.
