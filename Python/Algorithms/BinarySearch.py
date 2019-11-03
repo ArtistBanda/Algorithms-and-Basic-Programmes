@@ -1,7 +1,7 @@
 def binarySearch(ar, n, key):
     lb = 0
     ub = n
-    while lb < ub:
+    while lb <= ub:
         mid = int((lb + ub) / 2)
         if ar[mid] == key:
             return mid
