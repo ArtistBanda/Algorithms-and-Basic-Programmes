@@ -12,6 +12,8 @@ long long fibonacci_naive(int value)
 
 long long fibonacci_euclid(int value, long long arr[])
 {
+    // pass parameter arr of size value + 1 initilized with zeros
+
     if (arr[value])
         return arr[value];
 
@@ -23,6 +25,21 @@ long long fibonacci_euclid(int value, long long arr[])
 
     return arr[value];
 }
+
+long long fibonacci_euclid_iterative(int value)
+{
+    long long arr[value + 1];
+
+    arr[0] = 0;
+    arr[1] = 1;
+
+    for (int i = 2; i <= value; i++)
+        arr[i] = arr[i - 1] + arr[i - 2];
+
+    return arr[value];
+}
+
+// Test Code
 
 int main()
 {
