@@ -16,54 +16,15 @@ node *createNode(int value)
 
 class CircularLinkedList
 {
-    node *head;
+    node *last;
 
 public:
-    CircularLinkedList() { head = NULL; }
+    CircularLinkedList() { last = NULL; }
     void insertBeginning(int value)
     {
-        node *n1 = createNode(value);
-        if (head == NULL)
-        {
-            head = n1;
-            n1->next = head;
-            return;
-        }
-        n1->next = head;
-        head = n1;
     }
     void insertEnd(int value)
     {
-        node *n1 = createNode(value);
-        if (head == NULL)
-        {
-            head = n1;
-            n1->next = head;
-            return;
-        }
-        node *ptr = head;
-        while (ptr->next != NULL)
-            ptr = ptr->next;
-        ptr->next = n1;
-        n1->next = head;
-    }
-    void insertMiddle(int value, int pos)
-    {
-        node *n1 = createNode(value);
-        if (head == NULL)
-        {
-            head = n1;
-            head->next = head;
-            return;
-        }
-        node *temp1 = head, *temp2 = head;
-        for (int i = 0; i < pos; i++)
-        {
-            temp2 = temp1;
-            temp1 = temp1->next;
-        }
-        temp2->next = n1;
-        n1->next = temp1;
     }
 };
 
