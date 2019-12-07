@@ -16,58 +16,84 @@ node *createNode(int value)
 
 class CircularLinkedList
 {
-    node *head;
+    node *last;
 
 public:
-    CircularLinkedList() { head = NULL; }
+    CircularLinkedList() { last = NULL; }
+    void addToEmpty(int value)
+    {
+        node *newNode = createNode(value);
+        newNode->next = newNode;
+        last = newNode;
+    }
     void insertBeginning(int value)
     {
-        node *n1 = createNode(value);
-        if (head == NULL)
+        if (last == NULL)
         {
-            head = n1;
-            n1->next = head;
+            addToEmpty(value);
             return;
         }
-        n1->next = head;
-        head = n1;
+        node *newNode = createNode(value);
+        newNode->next = last->next;
+        last->next = newNode;
     }
     void insertEnd(int value)
     {
-        node *n1 = createNode(value);
-        if (head == NULL)
+        if (last == NULL)
         {
-            head = n1;
-            n1->next = head;
+            addToEmpty(value);
             return;
         }
-        node *ptr = head;
-        while (ptr->next != NULL)
-            ptr = ptr->next;
-        ptr->next = n1;
-        n1->next = head;
+        node *newNode = createNode(value);
+        newNode->next = last->next;
+        last->next = newNode;
+        last = newNode;
     }
-    void insertMiddle(int value, int pos)
+    void deleteBeginning()
     {
-        node *n1 = createNode(value);
-        if (head == NULL)
+        if (last == NULL)
         {
-            head = n1;
-            head->next = head;
+            cout << "Underflow\n";
             return;
         }
-        node *temp1 = head, *temp2 = head;
-        for (int i = 0; i < pos; i++)
+        node *ptr = last->next;
+        last->next = ptr->next;
+        free(ptr);
+    }
+    void displayAll()
+    {
+        if (last == NULL)
         {
-            temp2 = temp1;
-            temp1 = temp1->next;
+            cout << "Underflow\n";
+            return;
         }
-        temp2->next = n1;
-        n1->next = temp1;
+        node *ptr = last->next;
+        while (true)
+        {
+            cout << ptr->value << ' ';
+            ptr = ptr->next;
+            if (ptr == last)
+            {
+                cout << ptr->value;
+                break;
+            }
+        }
+        cout << endl;
     }
 };
 
+// Test Code
+
 int main()
 {
+    CircularLinkedList CLL;
+    CLL.insertBeginning(1);
+    CLL.insertBeginning(2);
+    CLL.insertBeginning(3);
+    CLL.displayAll();
+    CLL.insertEnd(4);
+    CLL.displayAll();
+    CLL.deleteBeginning();
+    CLL.displayAll();
     return 0;
 }
