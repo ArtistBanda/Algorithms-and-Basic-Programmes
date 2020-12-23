@@ -1,40 +1,47 @@
-#include <iostream>
-using namespace std;
-void insertionSort(int ar[], int start, int end)
-{
-    if (start >= end)
-        return;
-    else
-    {
-        int curPos, temp;
-        curPos = temp = 0;
-        for (int i = start + 1; i < end; i++)
-        {
-            curPos = i;
-            while (curPos > 0 && (ar[curPos] < ar[curPos - 1]))
-            {
-                temp = ar[curPos];
-                ar[curPos] = ar[curPos - 1];
-                ar[curPos - 1] = temp;
+// C++ program for insertion sort 
+#include <bits/stdc++.h> 
+using namespace std; 
 
-                curPos -= 1;
-            }
-        }
-    }
-}
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n) 
+{ 
+	int i, key, j; 
+	for (i = 1; i < n; i++) 
+	{ 
+		key = arr[i]; 
+		j = i - 1; 
 
-// Test Code
+		/* Move elements of arr[0..i-1], that are 
+		greater than key, to one position ahead 
+		of their current position */
+		while (j >= 0 && arr[j] > key) 
+		{ 
+			arr[j + 1] = arr[j]; 
+			j = j - 1; 
+		} 
+		arr[j + 1] = key; 
+	} 
+} 
 
-int main()
-{
-    int n;
-    cin >> n;
-    int ar[n];
-    for (int i = 0; i < n; i++)
-        cin >> ar[i];
-    insertionSort(ar, 0, n);
-    for (int i = 0; i < n; i++)
-        cout << ar[i] << ' ';
-    cout << endl;
-    return 0;
-}
+// A utility function to print an array of size n 
+void printArray(int arr[], int n) 
+{ 
+	int i; 
+	for (i = 0; i < n; i++) 
+		cout << arr[i] << " "; 
+	cout << endl; 
+} 
+
+/* Driver code */
+int main() 
+{ 
+	int arr[] = { 12, 11, 13, 5, 6 }; 
+	int n = sizeof(arr) / sizeof(arr[0]); 
+
+	insertionSort(arr, n); 
+	printArray(arr, n); 
+
+	return 0; 
+} 
+
+// This is code is contributed by rathbhupendra 
